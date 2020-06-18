@@ -1,0 +1,14 @@
+package com.spring.boot.msk.common.dto;
+
+import lombok.Builder;
+import lombok.Data;
+
+@Data
+@Builder
+public class ErrorDetail {
+	
+	private int code;
+	
+	private String message;
+
+}
