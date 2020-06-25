@@ -9,6 +9,7 @@ import org.spring.boot.msk.mobile.dto.GetAllMobileRequest;
 import org.spring.boot.msk.mobile.dto.SaveMobileRequest;
 import org.spring.boot.msk.mobile.service.MobileService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -33,6 +34,9 @@ public class MobileController {
 	@Autowired
 	private MobileService mobileService;
 	
+	@Autowired
+	private Environment environment;
+	
 	@GetMapping
 	public Response<List<MobileDto>> getAllMobiles(GetAllMobileRequest inputRequest){
 			List<MobileDto> mobiles =  mobileService.getAllMobiles(inputRequest);
@@ -45,7 +49,10 @@ public class MobileController {
 	})
 	public Response<MobileDto> getMobileById(@PathVariable("mobile-id") @Min(value = 1, message="{Min.SaveMoblieRequest.price}") int mobileId ) {
 		System.out.println("MobileController  :: getMobileById ");
+		System.out.println("Server Port : "+environment.getProperty("local.server.port"));
 		MobileDto mobile = mobileService.getMobileById(mobileId);
+		mobile.setPortNumber(Integer.parseInt(environment.getProperty("local.server.port")));
+				
 		return Response.<MobileDto>builder().response(mobile).build();
 	}
 	

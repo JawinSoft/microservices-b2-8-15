@@ -28,6 +28,8 @@ public class MobileClientResponse {
 	
 	private int price;
 	
+	private int port;
+	
 	private Country country;
 		 
 	private List<MobileAccessory> mobileAccessories;

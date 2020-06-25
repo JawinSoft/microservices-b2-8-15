@@ -84,6 +84,7 @@ public class MobileClientService {
 														.status(mobileDto.getStatus())
 														.lob(mobileDto.getLob())
 														.publicateDate(mobileDto.getPublicateDate())
+														.port(mobileDto.getPortNumber())
 														.build();
 			
 			

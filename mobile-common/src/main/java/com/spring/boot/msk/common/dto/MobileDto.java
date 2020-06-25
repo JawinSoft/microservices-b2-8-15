@@ -24,5 +24,7 @@ public class MobileDto {
 	private String publicateDate;
 	
 	private int price;
+	
+	private int portNumber;
 
 }

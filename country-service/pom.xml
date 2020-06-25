@@ -16,8 +16,6 @@
 	<name>country-service</name>
 	<description>Country Service Micro Service</description>
 
-
-
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -41,8 +39,10 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
-
+   
 	</dependencies>
+
+
 
 
 
